@@ -1,0 +1,30 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 250px;
+  background-color: brown;
+}
+
+.sidebar ul {
+  margin-top: 30px;
+}
+
+.sidebar a {
+  display: block;
+  background-color: #e8e8e8;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 7px 14px;
+  text-decoration: none;
+  color: #808080;
+}
+
+.active {
+  background: #41413e !important;
+}
+
+.sidebar a:hover {
+    background-color: #dedada;
+}

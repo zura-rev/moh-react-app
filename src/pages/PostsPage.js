@@ -7,11 +7,12 @@ export default function PostsPage() {
 
     const [posts, setPosts] = useState([])
 
+    async function fetchData() {
+        const _posts = await getPosts()
+        setPosts(_posts)
+    }
+
     useEffect(() => {
-        async function fetchData() {
-            const _posts = await getPosts()
-            setPosts(_posts)
-        }
         fetchData()
         //return () => { }
     }, [])
