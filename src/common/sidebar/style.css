@@ -9,6 +9,9 @@
 
 .sidebar ul {
   margin-top: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .sidebar a {
@@ -26,5 +29,5 @@
 }
 
 .sidebar a:hover {
-    background-color: #dedada;
+  background-color: #dedada;
 }
