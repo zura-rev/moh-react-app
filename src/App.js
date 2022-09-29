@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from "react-router-dom";
-import { Layout } from "./common/layout";
-import PostsPage from './pages/PostsPage'
+import { Layout } from "./layout";
+import ApplicationsPage from './pages/ApplicationsPage'
 import AboutPage from './pages/AboutPage'
 import CreatePostPage from "./pages/CreatePostPage";
-import { getPosts } from './api'
+//import { getPosts } from './api'
 
 function App() {
 
-  const [posts, setPosts] = useState([])
-
+  const [data, setData] = useState([])
 
   async function fetchData() {
-    const posts = await getPosts()
-    setPosts(posts)
+    //const posts = await getApplications()
+    //setData(posts)
   }
 
   useEffect(() => {
@@ -21,9 +20,9 @@ function App() {
     //return () => { }
   }, [])
 
-  const createPost = (post) => {
-    if (post) {
-      console.log('post', post)
+  const createPost = (data) => {
+    if (data) {
+      console.log('data', data)
     }
     //setPosts(post)
   }
@@ -31,7 +30,7 @@ function App() {
   return <div className="app">
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<PostsPage posts={posts} />} />
+        <Route index element={<ApplicationsPage data={data} />} />
         <Route path="createPost" element={<CreatePostPage handlePost={createPost} />} />
         <Route path="about" element={<AboutPage />} />
       </Route>

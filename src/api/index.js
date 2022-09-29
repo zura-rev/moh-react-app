@@ -1,4 +1,4 @@
-export const getPosts = async () => {
+export const getApplications = async () => {
     let result = null
     await fetch('https://jsonplaceholder.typicode.com/posts?_limit=110')
         .then(response => response.json())

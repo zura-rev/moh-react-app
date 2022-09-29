@@ -5,6 +5,7 @@
   left: 0;
   width: 250px;
   background-color: brown;
+  padding-top: 30px;
 }
 
 .sidebar ul {
@@ -16,18 +17,18 @@
 
 .sidebar a {
   display: block;
-  background-color: #e8e8e8;
-  margin: 10px;
+  background-color: #eee9e9;
+  margin: 7px 10px;
   border-radius: 20px;
   padding: 7px 14px;
   text-decoration: none;
-  color: #808080;
+  color: #494242;
 }
 
 .active {
-  background: #41413e !important;
+  background: #a29f9e !important;
 }
 
 .sidebar a:hover {
-  background-color: #dedada;
+  background-color: #ede6e6;
 }
