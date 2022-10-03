@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "./layout";
 import ApplicationsPage from './pages/ApplicationsPage'
+import ApplicationPage from './pages/ApplicationPage'
+import CreateApplicationPage from './pages/CreateApplicationPage'
 import AboutPage from './pages/AboutPage'
-import CreatePostPage from "./pages/CreatePostPage";
-//import { getPosts } from './api'
 
 function App() {
 
@@ -31,7 +31,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<ApplicationsPage data={data} />} />
-        <Route path="createPost" element={<CreatePostPage handlePost={createPost} />} />
+        <Route path="applicationPage/:id" element={<ApplicationPage />} />
+        <Route path="createApplicationPage" element={<CreateApplicationPage />} />
         <Route path="about" element={<AboutPage />} />
       </Route>
     </Routes>

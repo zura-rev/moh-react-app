@@ -8,7 +8,7 @@ const initialState = {
 }
 
 
-const CreatePostPage = ({ handlePost }) => {
+const CreateApplicationPage = () => {
 
     const titleRef = useRef(null)
     const bodyRef = useRef(null)
@@ -147,4 +147,4 @@ const CreatePostPage = ({ handlePost }) => {
     )
 }
 
-export default CreatePostPage
+export default CreateApplicationPage
