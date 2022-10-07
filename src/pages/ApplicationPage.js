@@ -20,9 +20,7 @@ const ApplicationPage = () => {
     }, [])
 
     const renderValue = (value) => {
-
         if (value) {
-
             if (typeof value === "object") {
                 return value.join(', ')
             }

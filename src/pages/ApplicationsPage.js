@@ -5,11 +5,10 @@ import 'moment/locale/ka'
 import { url } from '../constants'
 import { useNavigate } from "react-router-dom";
 
-
-
 export default function AplicationsPage() {
     let navigate = useNavigate();
     const { loading, request } = useHttp()
+
     const [apps, setApplications] = useState([])
     const [next, setNext] = useState(1)
 
@@ -24,14 +23,24 @@ export default function AplicationsPage() {
     async function fetchApplications() {
         const _applications = await request(`${uri}`, 'GET', null)
         setApplications(_applications)
+        console.log('_applications', _applications.headers)
     }
 
     useEffect(() => {
         fetchApplications()
+        return ()=>{}
     }, [next])
 
     const handleClick = (id) => {
         navigate(`applicationPage/${id}`)
+    }
+
+    const navigateFirst = (value) => {
+        setNext(value)
+    }
+
+    const navigateLast = (value) => {
+        setNext(value)
     }
 
     const navigatePage = (value) => {
@@ -40,11 +49,15 @@ export default function AplicationsPage() {
         }
     }
 
+    
+
     return (<>
         <div>
+            <button onClick={() => navigateFirst(1)}>First</button>
             <button onClick={() => navigatePage(-1)}>-1</button>
-            <span>{next}</span>
+            <span className='ps-3 pe-3'>{next}</span>
             <button onClick={() => navigatePage(1)}>+1</button>
+            <button onClick={() => navigatePage(1)}>Last</button>
         </div>
         <table className='table table-hover'>
             <thead>
