@@ -23,7 +23,7 @@ export const useHttp = () => {
         }
 
         const response = await fetch(url, { method, body, headers })
-        console.log('response', response.headers['totalpages'])
+        //console.log('response', response.headers['totalpages'])
         const data = await response.json()
 
         // if (!response.ok) {
