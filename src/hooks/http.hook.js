@@ -1,4 +1,6 @@
+import React from 'react'
 import { useState, useCallback } from 'react'
+import axios from 'axios'
 //import { useAuth } from './auth.hook'
 
 export const useHttp = () => {
@@ -9,11 +11,9 @@ export const useHttp = () => {
 
   const request = useCallback(
     async (url, method = 'GET', body = null, headers = {}) => {
-      console.log('_request', url, method, body, headers)
+      //console.log('_request', url, method, body, headers)
       setLoading(true)
-
       try {
-
         if (body) {
           body = JSON.stringify(body)
         }
@@ -22,9 +22,11 @@ export const useHttp = () => {
           headers['content-type'] = 'application/json'
         }
 
-        const response = await fetch(url, { method, body, headers })
-        //console.log('response', response.headers['totalpages'])
-        const data = await response.json()
+        const response = await axios({method, url, data:{body}, headers})
+
+        //const data = await response.json()
+
+        console.log('response.data',response.data)
 
         // if (!response.ok) {
         //   //როდესაც ტოკენი აღარ არის ვალიდური
@@ -37,9 +39,10 @@ export const useHttp = () => {
 
         setLoading(false)
 
-        return data
+        return response.data
 
       } catch (e) {
+        console.log('ex',e)
         setLoading(false)
         setError(e.message)
         throw e

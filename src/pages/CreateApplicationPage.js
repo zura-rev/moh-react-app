@@ -23,24 +23,19 @@ function formReducer(state = initialState, action) {
     
 
 const CreateApplicationPage = () => {
-
     
     const {loading, request, error } = useHttp()
     const [formState, dispatch] = useReducer(formReducer, initialState)
 
     const url = `https://ssademographytestapi.ssa.moh.local/api/Application`
 
-    const addApplication = async ()=> {
-        return await request(`${url}`, 'POST', {createApplication:formState})
-    }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
+        try{
         event.preventDefault()
-        //console.log('formState', formState)
-
-        //validation logic
-        const result = addApplication()
-
+        const result = await request(`${url}`, 'POST', {createApplication: formState})
+        console.log('result', result)
+        }catch(ex){console.log('ex',ex)}
     }
     
     if(loading){
@@ -78,26 +73,133 @@ const CreateApplicationPage = () => {
     const handleChange = (event)=>{
         const{name, value} = event.target
         dispatch({ type: 'CHANGE', payload: {...formState, [name]: value} })
-        
     }
 
     return <>
         <form onSubmit={handleSubmit}>
             <div className="mb-3">
-                <label htmlFor="pid" className="form-label">PID</label>
-                <input type="text" className="form-control" id="pid" name="apP_PID" value={formState.apP_PID} onChange={handleChange} />
+                <label htmlFor="apP_TYPE" className="form-label">apP_TYPE</label>
+                <input type="text" className="form-control" id="apP_TYPE" name="apP_TYPE" value={formState.apP_TYPE} onChange={handleChange} />
             </div>
             <div className="mb-3">
-                <label htmlFor="firstName" className="form-label">firstName</label>
-                <input type="text" className="form-control" id="firstName" name="apP_FIRST_NAME" value={formState.apP_FIRST_NAME} onChange={handleChange} />
+                <label htmlFor="apP_NO" className="form-label">apP_NO</label>
+                <input type="text" className="form-control" id="apP_NO" name="apP_NO" value={formState.apP_NO} onChange={handleChange} />
             </div>
             <div className="mb-3">
-                <label htmlFor="lastName" className="form-label">lastName</label>
-                <input type="text" className="form-control" id="lastName" name="apP_LAST_NAME" value={formState.apP_LAST_NAME} onChange={handleChange} />
+                <label htmlFor="regioN_ID" className="form-label">regioN_ID</label>
+                <input type="text" className="form-control" id="regioN_ID" name="regioN_ID" value={formState.regioN_ID} onChange={handleChange} />
             </div>
             <div className="mb-3">
-                <label htmlFor="phone" className="form-label">phone</label>
-                <input type="text" className="form-control" id="phone" name="apP_PHONE" value={formState.apP_PHONE} onChange={handleChange} />
+                <label htmlFor="apP_PID" className="form-label">apP_PID</label>
+                <input type="text" className="form-control" id="apP_PID" name="apP_PID" value={formState.apP_PID} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="apP_FIRST_NAME" className="form-label">apP_FIRST_NAME</label>
+                <input type="text" className="form-control" id="apP_FIRST_NAME" name="apP_FIRST_NAME" value={formState.apP_FIRST_NAME} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="apP_LAST_NAME" className="form-label">apP_LAST_NAME</label>
+                <input type="text" className="form-control" id="apP_LAST_NAME" name="apP_LAST_NAME" value={formState.apP_LAST_NAME} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="address" className="form-label">address</label>
+                <input type="text" className="form-control" id="address" name="apP_REG_ADDRESS" value={formState.apP_REG_ADDRESS} onChange={handleChange} />
             </div>
             <div className="mb-3">
                 <label htmlFor="address" className="form-label">address</label>
