@@ -33,7 +33,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<ApplicationsPage data={data} />} />
         <Route path="applicationPage/:id" element={<ApplicationPage />} />
-        <Route path="createApplicationPage" element={<CreateApplicationPage />} />
+        <Route path="createApplicationPage/:id" element={<CreateApplicationPage />} />
         <Route path="about" element={<AboutPage />} />
       </Route>
     </Routes>

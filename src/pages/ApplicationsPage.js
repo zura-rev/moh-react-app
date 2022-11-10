@@ -18,10 +18,10 @@ export default function AplicationsPage() {
         teritoryIds: [300, 301, 302, 303, 304, 305, 306, 307, 308]
     }
 
-    const uri = `https://ssademographytestapi.ssa.moh.local/api/Application?PageIndex=${next}&PageSize=10&TeritoryIds=301&TeritoryIds=302&TeritoryIds=308&StartDate=2016-01-01&EndDate=2022-09-01`
+    const uri = `https://ssademographytestapi.ssa.moh.local/api/Application?PageIndex=${next}&PageSize=10&TeritoryIds=301&TeritoryIds=302&TeritoryIds=308&StartDate=2016-01-01&EndDate=2023-09-01`
 
     async function fetchApplications() {
-        const _applications = await request(`${uri}`, 'GET', null)
+        const _applications = await request('GET',`${uri}`,  null)
         setApplications(_applications)
         console.log('_applications', _applications.headers)
     }
