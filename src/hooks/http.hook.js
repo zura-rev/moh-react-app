@@ -10,19 +10,17 @@ export const useHttp = () => {
   //const { logout } = useAuth()
 
   const request = useCallback(
-    async (url, method = 'GET', body = null, headers = {}) => {
+    async (method = 'GET', url,  body = null, headers = {}) => {
       //console.log('_request', url, method, body, headers)
       setLoading(true)
       try {
-        if (body) {
-          body = JSON.stringify(body)
-        }
-
+  
         if (!headers['content-type']) {
           headers['content-type'] = 'application/json'
         }
 
-        const response = await axios({method, url, data:{body}, headers})
+        const response = await axios({method, url, data: body, headers:{ headers}}
+        )
 
         //const data = await response.json()
 
